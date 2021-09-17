@@ -111,7 +111,7 @@ resource "aws_instance" "app_server" {
   associate_public_ip_address = true
   subnet_id                   = aws_subnet.main.id
   vpc_security_group_ids      = [aws_security_group.allow.id]
-  key_name                    = var.sshpubkey
+  key_name                    = var.sskeyname
 
   tags = {
     Name = "${var.region}-${var.env}-${var.instance_name}"
