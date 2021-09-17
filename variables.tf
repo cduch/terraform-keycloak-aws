@@ -31,3 +31,6 @@ variable "env" {
 variable "sshpubkey" {
     type    = string
 }
+variable "sskeyname" {
+    type    = string
+}

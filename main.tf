@@ -106,7 +106,7 @@ resource "aws_security_group" "allow" {
 
 #Keypair for authenticating with remote-exec
 resource "aws_key_pair" "my_key" {
- key_name   = "my_key"
+ key_name   = var.sskeyname
  public_key = var.sshpubkey
 }
 
