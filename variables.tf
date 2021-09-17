@@ -28,9 +28,6 @@ variable "env" {
     default = "tfe-lz"
 }
 
-variable "sshpubkey" {
-    type    = string
-}
 variable "sskeyname" {
     type    = string
 }
