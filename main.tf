@@ -104,12 +104,6 @@ resource "aws_security_group" "allow" {
   }
 }
 
-#Keypair for authenticating with remote-exec
-resource "aws_key_pair" "my_key" {
- key_name   = var.sskeyname
- public_key = var.sshpubkey
-}
-
 #Webserver
 resource "aws_instance" "app_server" {
   ami                         = var.ami
@@ -117,7 +111,7 @@ resource "aws_instance" "app_server" {
   associate_public_ip_address = true
   subnet_id                   = aws_subnet.main.id
   vpc_security_group_ids      = [aws_security_group.allow.id]
-  key_name                    = aws_key_pair.my_key.key_name
+  key_name                    = var.sshpubkey
 
   tags = {
     Name = "${var.region}-${var.env}-${var.instance_name}"
